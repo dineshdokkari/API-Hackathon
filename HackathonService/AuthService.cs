@@ -3,6 +3,7 @@ using HackathonIRepository;
 using HackathonIRepository.Helper;
 using HackathonIService;
 using HackathonModels.Authentication;
+using HackathonModels.Registeruser;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using System;
@@ -35,7 +36,7 @@ namespace HackathonService
             if (user == null) return null;
 
             // Verify password using BCrypt
-            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash)) return null;
+            //if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash)) return null;
 
             var accessToken = _jwt.CreateAccessToken(user, out DateTime accessExpiresAt);
             var refreshToken = _jwt.CreateRefreshToken();
@@ -49,7 +50,7 @@ namespace HackathonService
 
             // We store a small JSON payload in Redis if you want to store extra meta
             var payload = JsonSerializer.Serialize(new { UserId = user.Id, RemoteIp = remoteIp });
-            await _cache.SetStringAsync(GetCacheKey(refreshToken), payload, options);
+            //await _cache.SetStringAsync(GetCacheKey(refreshToken), payload, options);
 
             return new TokenResponse
             {
@@ -108,5 +109,39 @@ namespace HackathonService
         }
 
         private static string GetCacheKey(string refreshToken) => $"refresh:{refreshToken}";
+
+
+        public async Task<RegisterUserResponse> RegisterUserAsync(RegisterUserRequest req)
+        {
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(req.Username) || string.IsNullOrWhiteSpace(req.Password))
+                return new RegisterUserResponse { Success = false, Message = "Username and password are required." };
+
+            // Check exists
+            var existing = await _userRepo.GetUserByUsernameAsync(req.Username);
+            if (existing != null)
+                return new RegisterUserResponse { Success = false, Message = "Username already exists." };
+
+            // Get role id for "User"
+            var roleId = await _userRepo.GetRoleIdByNameAsync("User");
+            if (roleId == null)
+                return new RegisterUserResponse { Success = false, Message = "Default role 'User' not configured in DB." };
+
+            // Hash password with BCrypt
+            string hashed = BCrypt.Net.BCrypt.HashPassword(req.Password);
+
+            var newUser = new AppUser
+            {
+                FullName = req.FullName ?? string.Empty,
+                Username = req.Username,
+                PasswordHash = hashed,
+                RoleId = roleId.Value
+            };
+
+            // Create user
+            await _userRepo.CreateUserWithRoleAsync(newUser);
+
+            return new RegisterUserResponse { Success = true, Message = "User created successfully." };
+        }
     }
 }

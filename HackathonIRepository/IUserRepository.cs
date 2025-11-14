@@ -1,4 +1,5 @@
 ﻿using HackathonModels.Authentication;
+using HackathonModels.Registeruser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace HackathonIRepository
     {
         Task<User?> GetUserByUsernameAsync(string username);
         Task<User?> GetUserByIdAsync(int id);
+
+        Task<int?> GetRoleIdByNameAsync(string roleName);
+        Task CreateUserWithRoleAsync(AppUser user);
     }
 }

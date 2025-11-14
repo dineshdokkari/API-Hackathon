@@ -1,4 +1,5 @@
 ﻿using HackathonModels.Authentication;
+using HackathonModels.Registeruser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace HackathonIService
         Task<TokenResponse?> LoginAsync(LoginRequest request, string remoteIp = "unknown");
         Task<TokenResponse?> RefreshTokenAsync(string refreshToken, string remoteIp = "unknown");
         Task<bool> RevokeRefreshTokenAsync(string refreshToken);
+
+        Task<RegisterUserResponse> RegisterUserAsync(RegisterUserRequest req);
     }
 }

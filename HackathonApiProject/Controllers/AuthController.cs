@@ -1,5 +1,7 @@
 ﻿using HackathonIService;
 using HackathonModels.Authentication;
+using HackathonModels.Registeruser;
+using HackathonService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
@@ -17,6 +19,23 @@ namespace HackathonApiProject.Controllers
             _auth = auth;
         }
 
+        [HttpPost("signup")]
+        public async Task<IActionResult> Register([FromBody] RegisterUserRequest req)
+        {
+            try
+            {
+                await _auth.RegisterUserAsync(req);
+
+                return Ok(new
+                {
+                    message = "User registered successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest req)
