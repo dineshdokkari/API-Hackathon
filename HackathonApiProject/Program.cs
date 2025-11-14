@@ -1,11 +1,16 @@
 
 using HackathonHelper;
 using HackathonHelper.Models;
+using HackathonIRepository;
+using HackathonIRepository.Helper;
 using HackathonIService;
+using HackathonRepository;
+using HackathonService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using IAuthService = HackathonIService.IAuthService;
 
 namespace HackathonApiProject
 {
@@ -14,6 +19,18 @@ namespace HackathonApiProject
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Add CORS policy to allow frontend requests
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200") // Allow frontend URL
+                          .AllowAnyMethod()
+                          .AllowAnyHeader()
+                          .AllowCredentials();
+                });
+            });
             // configuration
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
             var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
@@ -30,7 +47,9 @@ namespace HackathonApiProject
                 options.Configuration = builder.Configuration["Redis:Configuration"];
             });
 
-            // Bind JwtSettings for JwtHandler via IOptions in JwtHandler constructor
+            builder.Services.AddScoped<IAuthService, AuthService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddSingleton<IJwtHandler, JwtHandler>();
             builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
             var key = Encoding.UTF8.GetBytes(jwtSettings.Key);

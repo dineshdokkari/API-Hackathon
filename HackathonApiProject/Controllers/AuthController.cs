@@ -7,13 +7,13 @@ using System.Text;
 namespace HackathonApiProject.Controllers
 {
     [AllowAnonymous]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private readonly IAuthenticationService _auth;
+        private readonly IAuthService _auth;
 
-        public AuthenticationController(IAuthenticationService auth) {
+        public AuthController(IAuthService auth) {
             _auth = auth;
         }
 

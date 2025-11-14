@@ -4,16 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonApiProject", "HackathonApiProject.csproj", "{0606ACF5-C54F-48C3-AD5C-E677AB450320}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09999504-76DC-403A-95BE-DB7DC7439485} = {09999504-76DC-403A-95BE-DB7DC7439485}
+		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18} = {B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonService", "..\HackathonService\HackathonService.csproj", "{949432E8-6943-42D7-A83C-9B0E914C9829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonService", "..\HackathonService\HackathonService.csproj", "{949432E8-6943-42D7-A83C-9B0E914C9829}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonIService", "..\HackathonIService\HackathonIService.csproj", "{5C8EE9A0-AD3F-438D-9116-69930CCADA60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonIService", "..\HackathonIService\HackathonIService.csproj", "{5C8EE9A0-AD3F-438D-9116-69930CCADA60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonRepository", "..\HackathonRepository\HackathonRepository.csproj", "{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonRepository", "..\HackathonRepository\HackathonRepository.csproj", "{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackarthonIRepository", "..\HackarthonIRepository\HackarthonIRepository.csproj", "{C7F93C32-180C-4046-82E0-72D5D1388AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonModels", "..\HackathonModels\HackathonModels.csproj", "{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonModels", "..\HackathonModels\HackathonModels.csproj", "{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonIRepository", "..\HackathonIRepository\HackathonIRepository.csproj", "{09999504-76DC-403A-95BE-DB7DC7439485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +41,14 @@ Global
 		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09999504-76DC-403A-95BE-DB7DC7439485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09999504-76DC-403A-95BE-DB7DC7439485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09999504-76DC-403A-95BE-DB7DC7439485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09999504-76DC-403A-95BE-DB7DC7439485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

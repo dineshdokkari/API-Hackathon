@@ -1,6 +1,6 @@
-﻿using HackarthonIRepository;
-using HackathonHelper.Interfaces;
-using HackathonHelper.Models;
+﻿using HackathonHelper.Models;
+using HackathonIRepository;
+using HackathonIRepository.Helper;
 using HackathonIService;
 using HackathonModels.Authentication;
 using Microsoft.Extensions.Caching.Distributed;
@@ -14,14 +14,14 @@ using System.Threading.Tasks;
 
 namespace HackathonService
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthService : IAuthService
     {
         private readonly IUserRepository _userRepo;
         private readonly IDistributedCache _cache;
         private readonly IJwtHandler _jwt;
         private readonly JwtSettings _jwtSettings;
 
-        public AuthenticationService(IUserRepository userRepo, IDistributedCache cache, IJwtHandler jwt, IOptions<JwtSettings> jwtOptions)
+        public AuthService(IUserRepository userRepo, IDistributedCache cache, IJwtHandler jwt, IOptions<JwtSettings> jwtOptions)
         {
             _userRepo = userRepo;
             _cache = cache;

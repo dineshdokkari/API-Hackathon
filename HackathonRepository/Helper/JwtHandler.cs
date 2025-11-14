@@ -1,5 +1,4 @@
-﻿using HackathonHelper.Interfaces;
-using HackathonModels.Authentication;
+﻿using HackathonModels.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Options;
 using HackathonHelper.Models;
+using HackathonIRepository.Helper;
 
 namespace HackathonHelper
 {

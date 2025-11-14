@@ -1,4 +1,4 @@
-﻿namespace HackathonRepository
+﻿namespace HackathonIRepository
 {
     public class Class1
     {

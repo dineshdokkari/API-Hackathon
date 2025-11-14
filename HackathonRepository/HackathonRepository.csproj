@@ -14,8 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HackarthonIRepository\HackarthonIRepository.csproj" />
-    <ProjectReference Include="..\HackathonModels\HackathonModels.csproj" />
+	  <ProjectReference Include="..\HackathonModels\HackathonModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HackathonIRepository">
+      <HintPath>..\HackathonIRepository\obj\Debug\net8.0\ref\HackathonIRepository.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

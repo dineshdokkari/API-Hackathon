@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HackathonHelper.Interfaces
+namespace HackathonIRepository.Helper
 {
     public interface IJwtHandler
     {
