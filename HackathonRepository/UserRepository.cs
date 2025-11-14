@@ -62,7 +62,6 @@ namespace HackathonRepository
                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                 Username = reader.GetString(reader.GetOrdinal("Username")),
                 PasswordHash = reader.GetString(reader.GetOrdinal("PasswordHash")),
-                CreatedAt = reader.IsDBNull(reader.GetOrdinal("CreatedAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreatedAt")),
                 Role = new Role
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("RoleId")),
