@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackathonApiProject", "HackathonApiProject.csproj", "{0606ACF5-C54F-48C3-AD5C-E677AB450320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonService", "..\HackathonService\HackathonService.csproj", "{949432E8-6943-42D7-A83C-9B0E914C9829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonIService", "..\HackathonIService\HackathonIService.csproj", "{5C8EE9A0-AD3F-438D-9116-69930CCADA60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonRepository", "..\HackathonRepository\HackathonRepository.csproj", "{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackarthonIRepository", "..\HackarthonIRepository\HackarthonIRepository.csproj", "{C7F93C32-180C-4046-82E0-72D5D1388AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonModels", "..\HackathonModels\HackathonModels.csproj", "{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0606ACF5-C54F-48C3-AD5C-E677AB450320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0606ACF5-C54F-48C3-AD5C-E677AB450320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0606ACF5-C54F-48C3-AD5C-E677AB450320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0606ACF5-C54F-48C3-AD5C-E677AB450320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949432E8-6943-42D7-A83C-9B0E914C9829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949432E8-6943-42D7-A83C-9B0E914C9829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949432E8-6943-42D7-A83C-9B0E914C9829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949432E8-6943-42D7-A83C-9B0E914C9829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8EE9A0-AD3F-438D-9116-69930CCADA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8EE9A0-AD3F-438D-9116-69930CCADA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8EE9A0-AD3F-438D-9116-69930CCADA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8EE9A0-AD3F-438D-9116-69930CCADA60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DD1B45-ABED-4E0E-837D-22FAE1A76A18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F93C32-180C-4046-82E0-72D5D1388AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA353D5-A8BA-49A5-955E-EBC7F0EBD22E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0940CCAB-58EC-4F0F-867E-A325858B925A}
+	EndGlobalSection
+EndGlobal
