@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HackathonIService
 {
-    public interface IAuthenticationService
+    public interface IAuthService
     {
         Task<TokenResponse?> LoginAsync(LoginRequest request, string remoteIp = "unknown");
         Task<TokenResponse?> RefreshTokenAsync(string refreshToken, string remoteIp = "unknown");

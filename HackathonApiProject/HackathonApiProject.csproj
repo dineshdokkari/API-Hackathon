@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,12 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HackathonIService\HackathonIService.csproj" />
+	  <ProjectReference Include="..\HackathonRepository\HackathonRepository.csproj" />
+	  <ProjectReference Include="..\HackathonService\HackathonService.csproj" />
+	  <ProjectReference Include="..\HackathonIService\HackathonIService.csproj" />
+	  <ProjectReference Include="..\HackathonModels\HackathonModels.csproj" />
   </ItemGroup>
 
 </Project>
