@@ -66,7 +66,7 @@ namespace HackathonRepository
                 PasswordHash = reader.GetString(reader.GetOrdinal("PasswordHash")),
                 Role = new Role
                 {
-                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Id = reader.GetInt32(reader.GetOrdinal("RoleId")),
                     RoleName = reader.GetString(reader.GetOrdinal("RoleName"))
                 }
             };

@@ -4,11 +4,14 @@ using HackathonIRepository.Helper;
 using HackathonIService;
 using HackathonModels.Authentication;
 using HackathonModels.Registeruser;
+using HackathonRepository;
+using HackathonRepository.Helper;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -35,9 +38,10 @@ namespace HackathonService
             var user = await _userRepo.GetUserByUsernameAsync(request.Username);
             if (user == null) return null;
 
-            // Verify password using BCrypt
-            //if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash)) return null;
-
+            byte[] passwordBytes = Convert.FromBase64String(request?.Password ?? string.Empty);
+            string decodedPassword = Encoding.UTF8.GetString(passwordBytes);
+            bool isValid = ValidateUserCredentials(request.Username, decodedPassword, user);
+            if (!isValid) return null;
             var accessToken = _jwt.CreateAccessToken(user, out DateTime accessExpiresAt);
             var refreshToken = _jwt.CreateRefreshToken();
             var refreshExpires = DateTime.UtcNow.AddMinutes(_jwtSettings.RefreshTokenMinutes);
@@ -60,6 +64,25 @@ namespace HackathonService
                 RefreshTokenExpiresAt = refreshExpires
             };
         }
+
+
+        private bool ValidateUserCredentials(string email, string password, User userdetails)
+        {
+
+            try
+            {
+                // Attempt to decrypt the password
+                string passwordString = userdetails.PasswordHash ?? string.Empty;
+                var decryptedText = AesEncryptionHelper.Decrypt(passwordString);
+                bool isValidUser = (password == decryptedText);
+                return isValidUser;
+            }
+            catch (CryptographicException ex)
+            {
+                return false;
+            }
+        }
+
 
         public async Task<TokenResponse?> RefreshTokenAsync(string refreshToken, string remoteIp = "unknown")
         {
@@ -127,14 +150,15 @@ namespace HackathonService
             if (roleId == null)
                 return new RegisterUserResponse { Success = false, Message = "Default role 'User' not configured in DB." };
 
-            // Hash password with BCrypt
-            string hashed = BCrypt.Net.BCrypt.HashPassword(req.Password);
+            byte[] passwordBytes = Convert.FromBase64String(req?.Password ?? string.Empty);
+            string decodedPassword = Encoding.UTF8.GetString(passwordBytes);
+            var cipherText = AesEncryptionHelper.Encrypt(decodedPassword);
 
             var newUser = new AppUser
             {
                 FullName = req.FullName ?? string.Empty,
                 Username = req.Username,
-                PasswordHash = hashed,
+                PasswordHash = cipherText,
                 RoleId = roleId.Value
             };
 

@@ -16,6 +16,7 @@
   <ItemGroup>
 	  <ProjectReference Include="..\HackathonIRepository\HackathonIRepository.csproj" />
 	  <ProjectReference Include="..\HackathonIService\HackathonIService.csproj" />
+	  <ProjectReference Include="..\HackathonRepository\HackathonRepository.csproj" />
   </ItemGroup>
 
 </Project>
