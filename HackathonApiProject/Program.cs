@@ -85,7 +85,7 @@ namespace HackathonApiProject
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("AllowLocalhost");
             app.UseAuthorization();
 
 
